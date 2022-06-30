@@ -12,9 +12,9 @@ pslength=$(ps -a | grep conky | wc -l);
 psRe=$(ps -af | grep conky | awk {'print $2 " " $10'} >> $tempfile);
 
 #different conky configs
-top="conky  -q --config=/etc/conky/conky-top.conf";
-side="conky  -q --config=/etc/conky/conky-side.conf";
-mid="conky  -q --config=/etc/conky/conky-mid.conf";
+top="conky  -q --config=/etc/conky/conky-top.lua";
+side="conky  -q --config=/etc/conky/conky-side.lua";
+mid="conky  -q --config=/etc/conky/conky-mid.lua";
 
 # sets all the conky windows
 function setAll(){
