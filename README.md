@@ -31,3 +31,5 @@ alias conky="startup_conky"
 With these additions, you can now invoke which conky window to open simply by typing `conky top` or `conky mid side` for example. 
 If you want to toggle the opening and closing of all windows simply use `conky`. 
 If you want to open all windows, use `conky all`, and for no windows use `conky none`.
+
+This config uses the Roboto Mono Nerd Font to display various icons, but any Nerd font should do.
