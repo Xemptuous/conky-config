@@ -18,79 +18,80 @@ mid="conky  -q --config=/etc/conky/conky-mid.lua";
 
 # sets all the conky windows
 function setAll(){
-	$top;
-	$side;
-	$mid;
+  $top;
+  $side;
+  $mid;
 };
 
 # checks the existing processes and toggles them on and off as needed
 function toggle(){
-	# regex entire tempfile for the match
-	match=$(grep "$1" $tempfile);
-	# using awk to just get the matching PID from the grep match
-	pid=$(grep "$1" $tempfile | awk {'print $1'});
-
-	if [[ $match ]]; then
-		$(kill $pid);
-	else
-		case "$1" in
-			"conky-top")
-				$top;
-			;;
-			"conky-side")
-				$side;
-			;;
-			"conky-mid")
-				$mid;
-			;;
-		esac
-	fi
+  # regex entire tempfile for the match
+  match=$(grep "$1" $tempfile);
+  
+  # using awk to just get the matching PID from the grep match
+  pid=$(grep "$1" $tempfile | awk {'print $1'});
+  
+  if [[ $match ]]; then
+    $(kill $pid);
+  else
+    case "$1" in
+      "conky-top")
+        $top;
+      ;;
+      "conky-side")
+        $side;
+      ;;
+      "conky-mid")
+        $mid;
+      ;;
+    esac
+  fi
 };
 
 
 # if no inputs given, toggles between all and none based on # of processes running
 if [[ $# -eq 0 ]]; then
-	if [ $pslength -le 2 ]; then
-		setAll;	
-	else
-		killall conky &> /dev/null;
-	fi
-	exit;
+  if [ $pslength -le 2 ]; then
+    setAll;	
+  else
+    killall conky &> /dev/null;
+  fi
+  exit;
 fi
 
 # main loop for inputs
 for input in "$@"; do
-	case $input in
+  case $input in
     # shortlist for autocompletion
-		shortlist)
-			echo top side mid all none
-		;;
-		*)
-			case "$1" in
-				"top")
-					toggle "conky-top";
-				;;
-				'side')
-					toggle "conky-side";
-				;;
-				"mid")
-					toggle "conky-mid";
-				;;
-				"all")
-					killall conky &> /dev/null;
-					setAll
-				;;
-				"none")
+    shortlist)
+      echo top side mid all none
+    ;;
+    *)
+      case "$1" in
+        "top")
+          toggle "conky-top";
+        ;;
+        'side')
+          toggle "conky-side";
+        ;;
+        "mid")
+          toggle "conky-mid";
+        ;;
+        "all")
           killall conky &> /dev/null;
-				;;
+          setAll
+        ;;
+        "none")
+          killall conky &> /dev/null;
+        ;;
         *)
           echo "Not a valid option. Options are:";
           echo "top  side  mid  all  none";
           exit;
         ;;
-			esac	
-		;;
-	esac
-	shift
+      esac	
+    ;;
+  esac
+  shift
 done
 
