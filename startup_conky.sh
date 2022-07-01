@@ -9,7 +9,7 @@ trap "rm -f $tempfile" EXIT;
 pslength=$(ps -a | grep conky | wc -l);
 
 # storing conky matches into tmpfile to regex later 
-psRe=$(ps -af | grep conky | awk {'print $2 " " $10'} >> $tempfile);
+psRe=$(ps -ax | grep conky | awk {'print $1 " " $5$6$7'} >> $tempfile);
 
 #different conky configs
 top="conky  -q --config=/etc/conky/conky-top.lua";
