@@ -14,15 +14,17 @@ conky.config ={
   short_units = true,
   
   text_buffer_size = 32768,
-
+  
+  -- CONKY: WINDOW SPECIFICATIONS
   own_window = true,
   own_window_argb_value = 150,
   own_window_argb_visual = true,
   own_window_class = 'conky',
   own_window_colour = '#000000',
   own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  -- own_window_transparent = false,
   own_window_type = 'panel',
-
+  -- own_window_type = 'desktop',
   xinerama_head = 3,
   border_inner_margin = 6,
   border_width = 5, 
@@ -36,21 +38,27 @@ conky.config ={
   gap_x = 10,
   gap_y = 10,
 
+  -- GRAPHICS SETTINGS
   draw_shades = false,
   draw_outline = false,
   draw_borders = false,
   draw_graph_borders = true,
+  -- draw_graph_borders = false,
 
+  -- TEXT SETTINGS
   use_xft = true,
   font = 'Montserrat Regular:size=10',
   xftalpha = 0.2,
 
   uppercase = false,
 
+  -- Pad percentages to this many decimals (0 = no padding)
   pad_percents = 2,
 
+  -- COLOUR SETTINGS
   default_color = 'AAAAAA',
   default_shade_color = '161616',
+  -- default_outline_color = '161616',
   default_outline_color = '161616',
   color1 = '999999'
 };
@@ -93,15 +101,15 @@ ${voffset 10}${font :size=11}${color}Processes ${color}${hr 2}${color}
 ${voffset -15}
 ${font Montserrat Light:size=9}${color1}APP NAME: ${goto 120}PID:${goto 186}RAM: ${goto 254}CPU: ${color}${font}
 ${voffset -15}
-${font Montserrat Light:size=9}${color1}${top_mem name 1} ${goto 110}${font Montserrat Light:size=8}${top pid 1}${color} ${goto 180}${top mem 1} % ${goto 245}${top cpu 1} %${voffset 5}
-${font Montserrat Light:size=9}${color1}${top_mem name 2} ${goto 110}${font Montserrat Light:size=8}${top pid 2}${color} ${goto 180}${top mem 2} % ${goto 245}${top cpu 2} %${voffset 5}
-${font Montserrat Light:size=9}${color1}${top_mem name 3} ${goto 110}${font Montserrat Light:size=8}${top pid 3}${color} ${goto 180}${top mem 3} % ${goto 245}${top cpu 3} %${voffset 5}
-${font Montserrat Light:size=9}${color1}${top_mem name 4} ${goto 110}${font Montserrat Light:size=8}${top pid 4}${color} ${goto 180}${top mem 4} % ${goto 245}${top cpu 4} %${voffset 5}
-${font Montserrat Light:size=9}${color1}${top_mem name 5} ${goto 110}${font Montserrat Light:size=8}${top pid 5}${color} ${goto 180}${top mem 5} % ${goto 245}${top cpu 5} %${voffset 5}
-${font Montserrat Light:size=9}${color1}${top_mem name 6} ${goto 110}${font Montserrat Light:size=8}${top pid 6}${color} ${goto 180}${top mem 6} % ${goto 245}${top cpu 6} %${voffset 5}
-${font Montserrat Light:size=9}${color1}${top_mem name 7} ${goto 110}${font Montserrat Light:size=8}${top pid 7}${color} ${goto 180}${top mem 7} % ${goto 245}${top cpu 7} %${voffset 5}
-${font Montserrat Light:size=9}${color1}${top_mem name 8} ${goto 110}${font Montserrat Light:size=8}${top pid 8}${color} ${goto 180}${top mem 8} % ${goto 245}${top cpu 8} %${voffset 5}
-${font Montserrat Light:size=9}${color1}${top_mem name 9} ${goto 110}${font Montserrat Light:size=8}${top pid 9}${color} ${goto 180}${top mem 9} % ${goto 245}${top cpu 9} %${voffset 5}
-${font Montserrat Light:size=9}${color1}${top_mem name 10} ${goto 110}${font Montserrat Light:size=8}${top pid 10}${color} ${goto 180}${top mem 10} % ${goto 245}${top cpu 10} %
+${font Montserrat Light:size=9}${color1}${top_mem name 1} ${goto 110}${font Montserrat Light:size=8}${top_mem pid 1}${color} ${goto 180}${top_mem mem 1} % ${goto 245}${top_mem cpu 1} %${voffset 5}
+${font Montserrat Light:size=9}${color1}${top_mem name 2} ${goto 110}${font Montserrat Light:size=8}${top_mem pid 2}${color} ${goto 180}${top_mem mem 2} % ${goto 245}${top_mem cpu 2} %${voffset 5}
+${font Montserrat Light:size=9}${color1}${top_mem name 3} ${goto 110}${font Montserrat Light:size=8}${top_mem pid 3}${color} ${goto 180}${top_mem mem 3} % ${goto 245}${top_mem cpu 3} %${voffset 5}
+${font Montserrat Light:size=9}${color1}${top_mem name 4} ${goto 110}${font Montserrat Light:size=8}${top_mem pid 4}${color} ${goto 180}${top_mem mem 4} % ${goto 245}${top_mem cpu 4} %${voffset 5}
+${font Montserrat Light:size=9}${color1}${top_mem name 5} ${goto 110}${font Montserrat Light:size=8}${top_mem pid 5}${color} ${goto 180}${top_mem mem 5} % ${goto 245}${top_mem cpu 5} %${voffset 5}
+${font Montserrat Light:size=9}${color1}${top_mem name 6} ${goto 110}${font Montserrat Light:size=8}${top_mem pid 6}${color} ${goto 180}${top_mem mem 6} % ${goto 245}${top_mem cpu 6} %${voffset 5}
+${font Montserrat Light:size=9}${color1}${top_mem name 7} ${goto 110}${font Montserrat Light:size=8}${top_mem pid 7}${color} ${goto 180}${top_mem mem 7} % ${goto 245}${top_mem cpu 7} %${voffset 5}
+${font Montserrat Light:size=9}${color1}${top_mem name 8} ${goto 110}${font Montserrat Light:size=8}${top_mem pid 8}${color} ${goto 180}${top_mem mem 8} % ${goto 245}${top_mem cpu 8} %${voffset 5}
+${font Montserrat Light:size=9}${color1}${top_mem name 9} ${goto 110}${font Montserrat Light:size=8}${top_mem pid 9}${color} ${goto 180}${top_mem mem 9} % ${goto 245}${top_mem cpu 9} %${voffset 5}
+${font Montserrat Light:size=9}${color1}${top_mem name 10} ${goto 110}${font Montserrat Light:size=8}${top_mem pid 10}${color} ${goto 180}${top_mem mem 10} % ${goto 245}${top_mem cpu 10} %
 ${voffset -5}
 ]];
